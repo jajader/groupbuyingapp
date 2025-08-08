@@ -6,7 +6,6 @@ const db = client.db("gb");
 export async function GET() {
     try {
         const result = await db.collection("freeboard-articles").find().toArray();
-        console.log(result)
         return NextResponse.json(result)
     } catch (err) {
          console.error(err);

@@ -34,7 +34,7 @@ export default function Editor() {
             alert("제목과 내용을 입력하세요")
         } else {
             try {
-                const res = await axios.post('/api', {title, content})
+                const res = await axios.post('/api/freeboard', {title, content})
             } catch (error) {
                 console.error(error)
                 alert("저장 실패")

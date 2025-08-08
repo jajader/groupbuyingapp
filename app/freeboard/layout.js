@@ -9,7 +9,7 @@ export default function RootLayout({children}) {
                     <div className="grid h-[1200px] w-[1280px] grid-flow-row grid-cols-4 bg-gray-100">
                         <div className="border-l-[1px] border-r-[1px] border-gray-400 col-span-4 xl:col-span-3 row-span-7 bg-white">
                             <div className="flex flex-col gap-0">
-                                <div className="flex p-4 border-b-[1px] border-gray-400 gap-2">
+                                <div className="flex p-4 border-b-[1px] border-gray-300 gap-2">
                                     <Pencil className="h-16 w-16" strokeWidth={1} size={60}/>
                                     <div className="flex w-[840px] flex-col gap-1">
                                         <a href="/freeboard" className="text-[20px] hover:underline">자유게시판</a>
