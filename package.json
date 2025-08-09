@@ -26,6 +26,7 @@
     "lucide-react": "^0.525.0",
     "mongodb": "^6.18.0",
     "next": "15.4.2",
+    "next-auth": "^4.24.11",
     "quill-image-resize-module": "^3.0.0",
     "quill-image-resize-module-ts": "^3.0.3",
     "react": "^18.3.1",

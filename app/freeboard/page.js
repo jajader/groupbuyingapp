@@ -30,7 +30,7 @@ export default async function freeboard() {
 
     return (
         <div>
-            <table className="w-full">
+            <table className="w-full table-auto">
                 <thead className="border-b-2">
                 <tr className="text-[13px]">
                     <th className="p-[6px] w-[90px]">번호</th>
