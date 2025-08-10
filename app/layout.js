@@ -10,6 +10,7 @@ import {
     NavigationMenuTrigger
 } from "@/components/ui/navigation-menu";
 import Nav from "@/components/nav"
+import LoginButton from "@/components/googleLogin";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

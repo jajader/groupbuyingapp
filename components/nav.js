@@ -20,6 +20,7 @@ import {Sheet, SheetTrigger, SheetContent, SheetDescription, SheetHeader, SheetF
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
+import LoginButton from "@/components/googleLogin";
 
 var menuItem = [
     {
@@ -92,20 +93,7 @@ export default function Nav() {
                 </Sheet>
 
                 <div className="ml-auto">
-                    <DropdownMenu className="h-20 hover:bg-gray-600 cursor-pointer">
-                        <DropdownMenuTrigger className={navigationMenuTriggerStyle()}>
-                            <div className="px-2">
-                                <Avatar>
-                                    <AvatarImage src="https://github.com/shadcn.png"/>
-                                    <AvatarFallback>CN</AvatarFallback>
-                                </Avatar>
-                            </div>
-                            My</DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                            <DropdownMenuItem>Sign in</DropdownMenuItem>
-                            <DropdownMenuItem>Sign up</DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                    <LoginButton/>
                 </div>
             </header>
             <hr/>
