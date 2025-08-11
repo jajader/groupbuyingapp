@@ -1,3 +1,4 @@
+'use client'
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -21,6 +22,7 @@ import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
 import LoginButton from "@/components/googleLogin";
+import {usePathname} from "next/navigation";
 
 var menuItem = [
     {
@@ -46,7 +48,11 @@ var menuItem = [
 ];
 
 export default function Nav() {
-    return(
+    const pathname = usePathname();
+    if (pathname.endsWith("login")) {
+        return null;
+    }
+    return (
         <div className="bg-white">
             <header className="flex h-20 items-center px-4 md:px-6">
                 <NavigationMenu viewport={false} className="p-3 hidden md:flex">

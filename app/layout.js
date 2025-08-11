@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import Nav from "@/components/nav"
 import LoginButton from "@/components/googleLogin";
+import AuthProvider from "@/components/provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +31,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <body className="bg-gray-100">
-      <Nav/>
-      {children}
+    <body className="bg-gray-100 h-screen">
+        <AuthProvider>
+            <Nav/>
+            {children}
+        </AuthProvider>
       </body>
     </html>
   );
