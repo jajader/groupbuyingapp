@@ -4,6 +4,7 @@ import {useEffect, useMemo, useState} from "react";
 import 'react-quill-new/dist/quill.snow.css';
 import axios from "axios";
 import {redirect} from "next/navigation";
+import {useSession} from "next-auth/react";
 
 const ReactQuill = dynamic(()=>
         import('react-quill-new'),
@@ -15,6 +16,7 @@ const ReactQuill = dynamic(()=>
 export default function Editor() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const {data: session, status} = useSession();
 
     const modules = useMemo(()=> {
         return {
@@ -23,18 +25,23 @@ export default function Editor() {
                 ['bold', 'italic', 'underline', 'strike'],
                 [{list: 'ordered'}, {list: 'bullet'}],
                 [{align: [] }],
-                ['link', 'image'],
+                ['link'],
                 ['clean']
             ],
         }
     })
 
+    if (!session) return null;
+    let username = session.user.name;
+    if (session.user.name === "11기 우보현") {
+        username = session.user.name + "⭐";
+    }
     const saveButtonClick = async (e) => {
         if (title==="" || content==="") {
             alert("제목과 내용을 입력하세요")
         } else {
             try {
-                const res = await axios.post('/api/freeboard', {title, content})
+                const res = await axios.post('/api/freeboard', {title, content, username})
             } catch (error) {
                 console.error(error)
                 alert("저장 실패")

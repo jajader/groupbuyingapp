@@ -12,7 +12,13 @@ export const authOptions = {
     callbacks: {
         async redirect({url, baseUrl}) {
             return "/"
+        },
+        async session({session}) {
+            return session;
         }
+    },
+    pages: {
+        signIn: "/login",
     }
 };
 

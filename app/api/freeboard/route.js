@@ -18,7 +18,7 @@ export async function GET() {
 
 export async function POST(req, res) {
         try {
-            const {title, content} = await req.json();
+            const {title, content, username} = await req.json();
             const result1 = await db.collection("counters").findOneAndUpdate(
                 {name: "freeboard"},
                 { $inc:{ counter : 1 } }
@@ -28,13 +28,14 @@ export async function POST(req, res) {
                         postId: result1.counter,
                         title: title,
                         content: content,
+                        author: username,
                         date: new Date(),
                         views: 0,
                         gechu: 0
                     }
                 )
                 return NextResponse.json({
-                    title, content
+                    title, content, username
                 }, { status: 200 })
         } catch (error) {
             console.error(error);

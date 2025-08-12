@@ -5,7 +5,7 @@ import axios from "axios";
 import {redirect} from "next/navigation";
 export const dynamic = 'force-dynamic';
 
-axios.defaults.baseURL = "http://localhost:3000"
+axios.defaults.baseURL = "http://sagb.kro.kr:3000"
 export default async function freeboard() {
     const result = await axios.get('/api/freeboard')
     const articles = result.data.reverse()
@@ -37,7 +37,7 @@ export default async function freeboard() {
                         <div className="flex flex-col gap-[2px]">
                             <div className="text-[14px]">{article.title}</div>
                             <div className="text-[14px] flex flex-row justify-between">
-                                <div className="text-[13px]">{article.postId}</div>
+                                <div className="text-[13px]">{article.author}</div>
                                 <div className="text-[12px]">{formatDate(article.date)} | 조회수 {article.views} | 추천 {article.gechu}</div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ export default async function freeboard() {
                                         {article.title}
                                     </Link>
                                 </td>
-                                <td className="text-[13px] truncate"></td>
+                                <td className="text-[13px] truncate">{article.author}</td>
                                 <td className="text-center text-[13px] truncate">{formatDate(article.date)}</td>
                                 <td className="text-center text-[13px]">{article.views}</td>
                                 <td className="text-center text-[13px]">{article.gechu}</td>

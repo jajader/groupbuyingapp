@@ -1,4 +1,7 @@
-export default async function Home() {
+'use client'
+import {useSession} from "next-auth/react";
+
+const Home = () => {
     return (
         <div>
             <main>
@@ -6,3 +9,4 @@ export default async function Home() {
         </div>
     );
 }
+export default Home;

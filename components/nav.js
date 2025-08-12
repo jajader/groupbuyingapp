@@ -8,7 +8,7 @@ import {
     navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
 
-import Sejong from "@/public/Sejong.png"
+import Sejong from "@/public/assets/Sejong.png"
 
 import Image from "next/image"
 
