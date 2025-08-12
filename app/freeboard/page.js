@@ -35,7 +35,7 @@ export default async function freeboard() {
                     <a href={`/freeboard/${article.postId}`} key={article._id}
                        className="hover:bg-gray-100 h-max p-1 px-2">
                         <div className="flex flex-col gap-[2px]">
-                            <div className="text-[14px]">{article.title}</div>
+                            <div className="text-[14px] truncate">{article.title}</div>
                             <div className="text-[14px] flex flex-row justify-between">
                                 <div className="text-[13px]">{article.author}</div>
                                 <div className="text-[12px]">{formatDate(article.date)} | 조회수 {article.views} | 추천 {article.gechu}</div>

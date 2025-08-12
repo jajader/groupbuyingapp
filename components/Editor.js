@@ -23,18 +23,17 @@ export default function Editor() {
             toolbar: [
                 [{size: ['small', false, 'large', 'huge']}],
                 ['bold', 'italic', 'underline', 'strike'],
-                [{list: 'ordered'}, {list: 'bullet'}],
+                [{list: 'ordered'}],
                 [{align: [] }],
-                ['link'],
-                ['clean']
+                ['link']
             ],
         }
     })
 
     if (!session) return null;
     let username = session.user.name;
-    if (session.user.name === "11기 우보현") {
-        username = session.user.name + "⭐";
+    if (session.user.name === "11기우보현") {
+        username = "⭐"+session.user.name;
     }
     const saveButtonClick = async (e) => {
         if (title==="" || content==="") {
@@ -58,7 +57,7 @@ export default function Editor() {
             <ReactQuill className="h-120 pb-[42px]" theme="snow" value={content} onChange={setContent} modules={modules} placeholder="내용을 입력하세요"/>
             <button onClick={(e)=> saveButtonClick(e)}
             className="my-3 border-1 border-[#cccccc] hover:bg-gray-100 float-right hover:cursor-pointer
-            flex place-items-center flex-row px-[6px] py-[3px] h-7.5">
+            flex place-items-center flex-row px-[6px] py-[3px] h-7.5 [500px]:h-15">
                 <p className="text-[13px] whitespace-nowrap">작성</p>
             </button>
         </div>

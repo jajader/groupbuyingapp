@@ -119,4 +119,17 @@
   body {
     @apply bg-background text-foreground;
   }
+
+    @layer utilities {
+        .ql-size-small {
+            @apply text-sm;
+        }
+        .ql-size-large {
+            @apply text-2xl;
+        }
+        .ql-size-huge {
+            @apply text-4xl;
+        }
+    }
+
 }
