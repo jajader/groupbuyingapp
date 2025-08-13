@@ -19,8 +19,10 @@ export async function GET(req, {params}) {
 
 export async function POST(req, {params}) {
     const {boardname} = await params;
+
         try {
-            const {title, content, username} = await req.json();
+            const {title, content, username, hidename, hideor} = await req.json();
+
             const result1 = await db.collection("counters").findOneAndUpdate(
                 {name: `${boardname}`},
                 { $inc:{ counter : 1 } }
@@ -33,7 +35,9 @@ export async function POST(req, {params}) {
                         author: username,
                         date: new Date(),
                         views: 0,
-                        gechu: 0
+                        gechu: 0,
+                        hidename: hidename,
+                        hideor: hideor,
                     }
                 )
                 return NextResponse.json({

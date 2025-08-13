@@ -32,9 +32,6 @@ export default function Editor({boardname}) {
     })
     if (!session) return null;
     let username = session.user.name;
-    if (session.user.name === "11기우보현") {
-        username = "⭐"+session.user.name;
-    }
     const saveButtonClick = async (e) => {
         if (title==="" || content==="") {
             alert("제목과 내용을 입력하세요")
