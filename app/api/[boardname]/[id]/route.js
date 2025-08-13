@@ -4,9 +4,9 @@ let client = await connectDB;
 const db = client.db("gb");
 
 export async function GET(req, {params}) {
-    const {id} = await params;
+    const {boardname, id} = await params;
     try {
-        const result = await db.collection("freeboard-articles").findOne(
+        const result = await db.collection(`${boardname}-articles`).findOne(
             { postId : Number(id) }
         );
         return NextResponse.json(result)

@@ -28,7 +28,7 @@ var menuItem = [
     {
         Name: "공동구매",
         Icon: DollarSign,
-        Src: "/dashboard"
+        Src: "/gb"
     },
     {
         Name: "자유게시판",
@@ -38,12 +38,12 @@ var menuItem = [
     {
         Name: "공지사항",
         Icon: Bell,
-        Src: "/dashboard"
+        Src: "/notice"
     },
     {
         Name: "문의게시판",
         Icon: BellDot,
-        Src: "/dashboard"
+        Src: "/contact"
     }
 ];
 
