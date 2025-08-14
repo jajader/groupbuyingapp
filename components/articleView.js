@@ -1,16 +1,14 @@
 import formatAuthor from "@/components/formatAuthor";
 import {getServerSession} from "next-auth";
+import EditDelete from "@/components/EditDelete";
 
-export default async function ArticleView({article}) {
-    const session = await getServerSession();
+export default async function ArticleView({boardname, article}) {
+    const session = await getServerSession()
+    if (!session) return null;
     const itsme = (session.user.name === article.data.author)
     return (
         <div>
-            {itsme && <div className="flex justify-end mx-[6px] mb-[2px] text-[14px]">
-                <p>수정</p>
-                <p className="mx-2">|</p>
-                <p>삭제</p>
-            </div>}
+            {itsme && <EditDelete boardname={boardname} articleData={article.data}/>}
             <div className="flex flex-col divide-y border-y divide-[#cccccc] border-[#cccccc]">
                 <p className="text-[18px] py-[6px] px-3 bg-gray-200">{article.data.title}</p>
                 <div className="flex flex-row text-[14px] py-[3px] px-3 justify-between">

@@ -89,7 +89,7 @@ export default function Nav() {
                         <SheetHeader>Menu</SheetHeader>
                         <div className="grid flex-1 auto-rows-min gap-6 px-4">
                             {menuItem.map((item)=>
-                                <Link href={item.Src} className="flex h-9 px-2 gap-1 items-center hover:bg-gray-300 rounded-[5px]">
+                                <Link href={item.Src} id={item.Src} className="flex h-9 px-2 gap-1 items-center hover:bg-gray-300 rounded-[5px]">
                                     <item.Icon className="w-[16px] h-[16px]" size={16}/>
                                     <span>{item.Name}</span>
                                 </Link>

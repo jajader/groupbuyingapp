@@ -2,14 +2,14 @@ import axios from "axios";
 import ArticleView from "@/components/articleView";
 import {redirect} from "next/navigation";
 
-axios.defaults.baseURL = "http://sagb.kro.kr:3000"
+axios.defaults.baseURL = process.env.DEFAULT_URL
 export default async function article({params}) {
     const {id} = await params;
     const result = await axios.get(`/api/contact/${id}`)
     if (!result.data) {
-        redirect("http://sagb.kro.kr:3000/error")
+        redirect(`${process.env.DEFAULT_URL}/error`)
     }
     return (
-        <ArticleView article={result}/>
+        <ArticleView boardname="contact" article={result}/>
     )
 }

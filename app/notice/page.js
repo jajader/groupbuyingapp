@@ -7,7 +7,7 @@ import formatAuthor from "@/components/formatAuthor";
 import ArticlesTable from "@/components/articlesTable";
 export const dynamic = 'force-dynamic';
 
-axios.defaults.baseURL = "http://sagb.kro.kr:3000"
+axios.defaults.baseURL = process.env.DEFAULT_URL
 export default async function freeboard() {
     const result = await axios.get('/api/notice')
     const articles = result.data.reverse()
