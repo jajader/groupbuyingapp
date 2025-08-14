@@ -5,6 +5,8 @@ import 'react-quill-new/dist/quill.snow.css';
 import axios from "axios";
 import {redirect} from "next/navigation";
 import {useSession} from "next-auth/react";
+import {getServerSession} from "next-auth";
+
 
 const ReactQuill = dynamic(()=>
         import('react-quill-new'),
@@ -19,6 +21,7 @@ export default function Editor({boardname}) {
     const [hidename, setHidename] = useState(false);
     const [hideor, setHideor] = useState(false);
     const {data: session, status} = useSession();
+
     const modules = useMemo(()=> {
         return {
             toolbar: [
@@ -36,6 +39,16 @@ export default function Editor({boardname}) {
         if (title==="" || content==="") {
             alert("제목과 내용을 입력하세요")
         } else {
+            if (boardname === "notice") {
+                const result = await axios.get("/api/admins")
+                const admin = result.data.some((user) => user.name===session.user.name)
+                if (!admin) {
+                    alert("관리자만 작성할 수 있습니다.")
+                    redirect(`/notice`)
+                    return;
+                }
+            }
+
             try {
                 const res = await axios.post(`/api/${boardname}`, {title, content, username, hidename, hideor})
             } catch (error) {
@@ -51,12 +64,13 @@ export default function Editor({boardname}) {
         <div>
             <input className="mb-3 w-full py-2 px-3 border-1 rounded-[5px] border-[#cccccc]"
                    placeholder="제목을 입력하세요" value={title} onChange={(e)=> setTitle(e.target.value)}></input>
-            <div className="mb-3 w-full py-1 px-3 border-1 border-[#cccccc] rounded-[5px]">
+            {(boardname === "freeboard" || boardname === "contact") &&
+                <div className="mb-3 w-full py-1 px-3 border-1 border-[#cccccc] rounded-[5px]">
                 <input type="checkbox" checked={hidename} onChange={(e)=>setHidename(e.target.checked)}/>
                 <label className="mx-1 mr-3">이름 숨기기</label>
                 <input type="checkbox" checked={hideor} onChange={(e)=>setHideor(e.target.checked)}/>
                 <label className="mx-1">기수 숨기기</label>
-            </div>
+            </div>}
             <ReactQuill className="h-120 pb-[42px]" theme="snow" value={content} onChange={setContent} modules={modules} placeholder="내용을 입력하세요"/>
             <button onClick={(e)=> saveButtonClick(e)}
             className="my-3 border-1 border-[#cccccc] hover:bg-gray-100 float-right hover:cursor-pointer

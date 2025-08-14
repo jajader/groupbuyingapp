@@ -1,7 +1,13 @@
 import {Bell, PenLine } from "lucide-react";
 import {connectDB} from "@/app/util/database";
+import axios from "axios";
+import {getServerSession} from "next-auth";
 
-export default function RootLayout({children}) {
+axios.defaults.baseURL = process.env.DEFAULT_URL
+export default async function RootLayout({children}) {
+    const session = await getServerSession();
+    const result = await axios.get("/api/admins")
+    const admin = result.data.some((user) => user.name===session.user.name)
     return (
         <div className="justify-items-center">
             <div className="grid min-h-screen xl:w-[1280px] w-full grid-flow-row grid-cols-4 bg-gray-100">
@@ -15,12 +21,12 @@ export default function RootLayout({children}) {
                                     <span className="text-[14px]">
                                              공지사항 게시판입니다.</span>
                                 </div>
-                                <a className="flex place-items-center flex-row px-[6px] py-[3px] h-7.5
+                                {admin && <a className="flex place-items-center flex-row px-[6px] py-[3px] h-7.5
                                     outline-[1px] outline-[#cccccc] hover:bg-gray-100"
-                                   href="/notice/write">
+                                             href="/notice/write">
                                     <PenLine className="mr-[2px]" strokeWidth={2} size={13}/>
                                     <p className="text-[13px] whitespace-nowrap">글쓰기</p>
-                                </a>
+                                </a>}
                             </div>
                         </div>
                     </div>

@@ -23,10 +23,10 @@ export default function EditDelete({boardname, articleData}) {
                     <h2 className="text-lg font-semibold mb-2">정말 삭제하시겠습니까?</h2>
                     <p className="text-sm text-gray-600 mb-4">이 작업은 되돌릴 수 없습니다.</p>
                     <div className="flex justify-end gap-2">
-                        <button onClick={() => async function deleteArticle() {
+                        <button onClick={async function deleteButton() {
                             const result = await axios.delete(`/api/${boardname}/${articleData.postId}`)
                             redirect(`/${boardname}`)
-                        }} className="px-4 py-2 rounded hover:bg-red-200 hover:cursor-pointer">
+                        }} className="px-4 py-2 rounded bg-red-200 hover:bg-red-500 hover:cursor-pointer text-black">
                             네
                         </button>
                         <button onClick={() => setOpen(false)} className="px-4 py-2 rounded hover:bg-gray-100 hover:cursor-pointer">
