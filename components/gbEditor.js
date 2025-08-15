@@ -56,17 +56,21 @@ export default function Editor() {
             <input className="mb-3 w-full py-2 px-3 border-1 rounded-[5px] border-[#cccccc]"
                    placeholder="제목을 입력하세요" value={title} onChange={(e)=> setTitle(e.target.value)}/>
             <div className="border divide-y">
-                <div className="flex flex-row divide-x divide-1 px-3 py-2">
-                    <label>asdf</label>
-                    <input type="text"/>
+                <div className="flex flex-row divide-x divide-1">
+                    <p className="w-24 py-2 text-[16px] flex justify-center">종류</p>
+                    <input className="px-3 py-2 w-full" type="text"/>
                 </div>
                 <div className="flex flex-row divide-x divide-1">
-                    <label>asdf</label>
-                    <input type="text"/>
+                    <label className="w-24 py-2 text-[16px] flex justify-center">링크</label>
+                    <input className="px-3 py-2 w-full" type="text"/>
                 </div>
                 <div className="flex flex-row divide-x divide-1">
-                    <label>asdf</label>
-                    <input type="text"/>
+                    <label className="w-24 py-2 text-[16px] flex justify-center">상품명</label>
+                    <input className="px-3 py-2 w-full" type="text"/>
+                </div>
+                <div className="flex flex-row divide-x divide-1">
+                    <label className="w-24 py-2 text-[16px] flex justify-center">가격</label>
+                    <input className="px-3 py-2 w-full" type="text"/>
                 </div>
             </div>
             <ImageUploader/>
