@@ -20,18 +20,16 @@
         }
         console.log(imageUrl)
         return (
-            <div className="flex justify-items-center h-min-30 w-min-30">
+            <div className="flex justify-items-center">
                 {imageUrl ? (
-                    <div>
-                        <button
-                            className="border border-solid border-blue-400 text-blue-500 inset-0"
-                            onClick={handleButtonClick}>
-                            이미지 수정
+                    <div className="relative">
+                        <img src={imageUrl} alt="이미지" className="w-full h-full rounded-xl min-w-30 min-h-30 max-h-90"/>
+                        <button className="absolute inset-0 duration-300 hover:opacity-50 opacity-0 bg-gray-100 items-center rounded-xl hover:cursor-pointer" onClick={handleButtonClick}>
+                            <p className="">이미지 교체</p>
                         </button>
-                        <img src={imageUrl} alt="이미지" className="w-full h-full object-cover rounded"/>
                     </div>
                 ) : (
-                    <button className="border border-solid border-blue-400 text-blue-500" onClick={handleButtonClick}>
+                    <button className="p-4 border border-[#cccccc] rounded hover:bg-gray-100 hover:cursor-pointer" onClick={handleButtonClick}>
                         이미지 업로드
                     </button>
                 )}

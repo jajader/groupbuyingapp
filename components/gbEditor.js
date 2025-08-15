@@ -53,10 +53,24 @@ export default function Editor() {
 
     return (
         <div>
-            <ImageUploader/>
             <input className="mb-3 w-full py-2 px-3 border-1 rounded-[5px] border-[#cccccc]"
-                   placeholder="제목을 입력하세요" value={title} onChange={(e)=> setTitle(e.target.value)}></input>
-            <ReactQuill className="h-120 pb-[42px]" theme="snow" value={content} onChange={setContent} modules={modules} placeholder="내용을 입력하세요"/>
+                   placeholder="제목을 입력하세요" value={title} onChange={(e)=> setTitle(e.target.value)}/>
+            <div className="border divide-y">
+                <div className="flex flex-row divide-x divide-1 px-3 py-2">
+                    <label>asdf</label>
+                    <input type="text"/>
+                </div>
+                <div className="flex flex-row divide-x divide-1">
+                    <label>asdf</label>
+                    <input type="text"/>
+                </div>
+                <div className="flex flex-row divide-x divide-1">
+                    <label>asdf</label>
+                    <input type="text"/>
+                </div>
+            </div>
+            <ImageUploader/>
+            <ReactQuill className="h-120 pb-[42px] pt-[10px]" theme="snow" value={content} onChange={setContent} modules={modules} placeholder="내용을 입력하세요"/>
             <button onClick={(e)=> saveButtonClick(e)}
                     className="my-3 border-1 border-[#cccccc] hover:bg-gray-100 float-right hover:cursor-pointer
             flex place-items-center flex-row px-[6px] py-[3px] h-7.5 [500px]:h-15">
