@@ -52,7 +52,15 @@ export default async function article({params}) {
                     </div>
                     <div className="flex flex-row divide-x divide-1 divide-[#cccccc]">
                         <p className="w-25 py-2 text-[14px] flex justify-center">참여</p>
-                        <p className="flex-1 ml-2 py-2 text-[14px] break-all"></p>
+                        <div className="flex flex-row">
+                            {result.data.participants.map((participant) =>
+                                <p className="flex-1 ml-2 py-2 text-[14px] break-all">{participant}</p>
+                            )}
+                            {result.data.participants.map((participant) =>
+                                <p className="flex-1 ml-2 py-2 text-[14px] break-all">{participant}</p>
+                            )}
+                        </div>
+
                     </div>
                 </div>
                 <div>

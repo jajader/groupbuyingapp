@@ -37,6 +37,7 @@ export async function POST(req) {
                 date: new Date(),
                 views: 0,
                 gechu: 0,
+                participants: [username]
 
             }
         )
