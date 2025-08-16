@@ -2,7 +2,7 @@
 
     import {useRef, useState} from "react";
 
-    export default function ImageUploader({setImg}) {
+    export default function ImageUploader({setImg, setFile}) {
         const fileInputRef = useRef(null);
         const [imageUrl, setImageUrl] = useState("");
 
@@ -14,6 +14,9 @@
                 if (setImg) {
                     setImg(urlimg);
                 }
+                if (setFile) {
+                    setFile(file);
+                }
             }
         };
 
@@ -23,7 +26,7 @@
             }
         }
         return (
-            <div className="flex items-center justify-center w-full p-3">
+            <div className="flex items-center justify-center flex-1 p-3">
                 {imageUrl ? (
                     <div className="relative">
                         <img src={imageUrl} alt="이미지" className="w-full h-full rounded-xl min-w-30 min-h-30 max-h-60"/>

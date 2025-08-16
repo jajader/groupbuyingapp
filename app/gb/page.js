@@ -35,44 +35,38 @@ export default async function freeboard() {
             <div className="flex flex-col md:hidden visible divide-y-1 border-y-1">
                 {articles.map((article) =>
                     <a href={`/gb/${article.postId}`} key={article._id}
-                       className="hover:bg-gray-100 h-max p-1 px-2">
-                        <div className="flex flex-col gap-[2px]">
-                            <div className="text-[14px] truncate">{article.title}</div>
-                            <div className="text-[14px] flex flex-row justify-between">
-                                <div className="text-[13px]">{formatAuthor(article.author, article.hidename, article.hideor)}</div>
-                                <div className="text-[12px]">{formatDate(article.date)} | 조회수 {article.views} | 추천 {article.gechu}</div>
+                       className="hover:bg-gray-100 p-1 px-2 flex flex-row gap-2">
+                        <div className="h-15 w-25 bg-blue-300 rounded-[4px] flex items-center justify-center">
+                            <p>이미지</p>
+                        </div>
+                        <div className="flex flex-col gap-[2px] flex-1">
+                            <div className="text-[12px] truncate">{article.sort}c</div>
+                            <div className="text-[15px] truncate">{article.name}a</div>
+                            <div className="flex flex-row justify-between">
+                                <div className="text-[12px] text-red-500 font-bold">{article.price}b</div>
+                                <div className="text-[12px]">{article.author} | {formatDate(article.date)} | 조회수 {article.views}</div>
                             </div>
                         </div>
                     </a>
                 )}
             </div>
             <div className="flex-col md:flex hidden divide-y-1 border-y-1">
-                {/*articles.map((article) =>
+                {articles.map((article) =>
                     <a href={`/gb/${article.postId}`} key={article._id}
-                       className="hover:bg-gray-100 h-max p-1 px-2">
-                        <div className="flex flex-col gap-[2px]">
-                            <div className="text-[14px] truncate">{article.title}</div>
-                            <div className="text-[14px] flex flex-row justify-between">
-                                <div className="text-[13px]">{formatAuthor(article.author, article.hidename, article.hideor)}</div>
-                                <div className="text-[12px]">{formatDate(article.date)} | 회수 {article.views} | 추천 {article.gechu}</div>
+                       className="hover:bg-gray-100 p-1 px-2 flex flex-row gap-2">
+                        <div className="h-17 w-30 bg-blue-300 rounded-[4px] flex items-center justify-center">
+                            <p>이미지</p>
+                        </div>
+                        <div className="flex flex-col gap-[2px] flex-1">
+                            <div className="text-[13px] truncate">{article.sort}</div>
+                            <div className="text-[16px] truncate">{article.name}</div>
+                            <div className="flex flex-row justify-between">
+                                <div className="text-[13px] text-red-500 font-bold">{article.price}원</div>
+                                <div className="text-[13px]">{article.author} | {formatDate(article.date)} | 조회수 {article.views}</div>
                             </div>
                         </div>
                     </a>
-                )*/}
-                <a href={`/gb/`} key={1}
-                   className="hover:bg-gray-100 p-1 px-2 flex flex-row gap-2">
-                    <div className="h-17 w-32 bg-blue-300 rounded-[4px] flex items-center justify-center">
-                        <p>이미지</p>
-                    </div>
-                    <div className="flex flex-col gap-[2px] w-full">
-                        <div className="text-[13px] truncate">추가 정보</div>
-                        <div className="text-[16px] truncate">제목</div>
-                        <div className="flex flex-row justify-between">
-                            <div className="text-[13px]">저자</div>
-                            <div className="text-[13px]">날짜 조회수 추천</div>
-                        </div>
-                    </div>
-                </a>
+                )}
             </div>
         </div>
     )
