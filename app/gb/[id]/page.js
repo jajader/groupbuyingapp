@@ -6,6 +6,7 @@ import EditDelete from "@/components/EditDelete";
 import {getSession} from "next-auth/react";
 import {getServerSession} from "next-auth";
 import ImageUploader from "@/components/ImageUploader";
+import ParticipateGb from "@/components/participateGb";
 
 axios.defaults.baseURL = process.env.DEFAULT_URL
 export default async function article({params}) {
@@ -52,13 +53,13 @@ export default async function article({params}) {
                     </div>
                     <div className="flex flex-row divide-x divide-1 divide-[#cccccc]">
                         <p className="w-25 py-2 text-[14px] flex justify-center">참여</p>
-                        <div className="flex flex-row">
+                        <div className="flex flex-wrap gap-1 flex-1">
                             {result.data.participants.map((participant) =>
-                                <p className="flex-1 ml-2 py-2 text-[14px] break-all">{participant}</p>
+                                ((participant !== session.user.name) || itsme) && <p
+                                    className="ml-2 my-2 text-[14px] break-all border-1 px-1 py-1 rounded-xl border-[#cccccc]" key={participant}>{participant}</p>
+
                             )}
-                            {result.data.participants.map((participant) =>
-                                <p className="flex-1 ml-2 py-2 text-[14px] break-all">{participant}</p>
-                            )}
+                            {!itsme && <ParticipateGb id={id} participants={result.data.participants} user={session.user.name}/>}
                         </div>
 
                     </div>
