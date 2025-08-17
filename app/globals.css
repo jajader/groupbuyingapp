@@ -130,6 +130,15 @@
         .ql-size-huge {
             @apply text-4xl;
         }
+        .ql-align-right {
+          @apply text-right
+        }
+        .ql-align-center {
+          @apply text-center
+        }
+        .ql-align-left {
+          @apply text-left
+        }
     }
 
 }

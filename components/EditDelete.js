@@ -26,7 +26,7 @@ export default function EditDelete({boardname, articleData}) {
                         <button onClick={async function deleteButton() {
                             const result = await axios.delete(`/api/${boardname}/${articleData.postId}`)
                             redirect(`/${boardname}`)
-                        }} className="px-4 py-2 rounded bg-red-200 hover:bg-red-500 hover:cursor-pointer text-black">
+                        }} className="px-4 py-2 rounded bg-red-200 hover:bg-red-500 hover:cursor-pointer text-black hover:text-white">
                             네
                         </button>
                         <button onClick={() => setOpen(false)} className="px-4 py-2 rounded hover:bg-gray-100 hover:cursor-pointer">
