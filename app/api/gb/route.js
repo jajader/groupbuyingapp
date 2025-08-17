@@ -19,7 +19,7 @@ export async function GET(req) {
 export async function POST(req) {
 
     try {
-        const {content, username, sort, link, name, price} = await req.json();
+        const {content, username, sort, link, name, price, url} = await req.json();
 
         const result1 = await db.collection("counters").findOneAndUpdate(
             {name: `gb`},
@@ -37,7 +37,8 @@ export async function POST(req) {
                 date: new Date(),
                 views: 0,
                 gechu: 0,
-                participants: [username]
+                participants: [username],
+                imgurl: url
 
             }
         )

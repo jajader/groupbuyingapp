@@ -66,7 +66,7 @@ export default async function article({params}) {
                 </div>
                 <div>
                     <div className="px-[13px] py-[3px]">
-                        <img src="/assets/file.svg" alt="Sejong" className="max-h-120"/>
+                        <img src={result.data.imgurl} alt="이미지" className="max-h-120"/>
                     </div>
                     <div className="px-[13px] py-[3px] min-h-[200px] break-all" dangerouslySetInnerHTML={{ __html: result.data.content}}/>
                 </div>

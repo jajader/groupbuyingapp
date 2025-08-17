@@ -36,9 +36,7 @@ export default async function freeboard() {
                 {articles.map((article) =>
                     <a href={`/gb/${article.postId}`} key={article._id}
                        className="hover:bg-gray-100 p-1 px-2 flex flex-row gap-2">
-                        <div className="h-15 w-25 bg-blue-300 rounded-[4px] flex items-center justify-center">
-                            <p>이미지</p>
-                        </div>
+                        <img className="h-15 w-25 bg-blue-300 rounded-[4px] flex items-center justify-center" src={article.imgurl} alt="미리보기 이미지"/>
                         <div className="flex flex-col gap-[2px] flex-1">
                             <div className="text-[12px] truncate">{article.sort}c</div>
                             <div className="text-[15px] truncate">{article.name}a</div>
@@ -54,9 +52,7 @@ export default async function freeboard() {
                 {articles.map((article) =>
                     <a href={`/gb/${article.postId}`} key={article._id}
                        className="hover:bg-gray-100 p-1 px-2 flex flex-row gap-2">
-                        <div className="h-17 w-30 bg-blue-300 rounded-[4px] flex items-center justify-center">
-                            <p>이미지</p>
-                        </div>
+                        <img className="h-17 w-30 bg-blue-300 rounded-[4px] flex items-center justify-center" src={article.imgurl} alt="미리보기 이미지"/>
                         <div className="flex flex-col gap-[2px] flex-1">
                             <div className="text-[13px] truncate">{article.sort}</div>
                             <div className="text-[16px] truncate">{article.name}</div>

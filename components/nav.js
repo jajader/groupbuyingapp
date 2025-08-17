@@ -99,7 +99,7 @@ export default function Nav() {
                 </Sheet>
 
                 <div className="ml-auto">
-                    <LoginButton/>
+                    My
                 </div>
             </header>
             <hr/>

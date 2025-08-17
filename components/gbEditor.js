@@ -52,7 +52,11 @@ export default function Editor() {
         } else {
 
             try {
-                const res = await axios.post(`/api/gb`, {content, username, sort, link, name, price})
+                const formData = new FormData();
+                formData.append("file", file)
+                const res2 = await axios.post('/api/upload', formData)
+                const url = res2.data.url;
+                const res = await axios.post(`/api/gb`, {content, username, sort, link, name, price, url})
             } catch (error) {
                 console.error(error)
                 alert("저장 실패")
