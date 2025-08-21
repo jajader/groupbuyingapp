@@ -1,9 +1,4 @@
-import {Pencil, UserRound} from "lucide-react";
-import Editor from "@/components/Editor";
-import Link from "next/link"
 import axios from "axios";
-import formatAuthor from "@/components/formatAuthor";
-import ArticlesTable from "@/components/articlesTable";
 export const dynamic = 'force-dynamic';
 
 axios.defaults.baseURL = process.env.DEFAULT_URL
