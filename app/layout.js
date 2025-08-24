@@ -33,8 +33,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
     <body className="bg-gray-100 h-screen">
         <AuthProvider>
-            <Nav/>
-            {children}
+                <Nav/>
+                {children}
         </AuthProvider>
       </body>
     </html>
