@@ -7,6 +7,7 @@ import {getSession} from "next-auth/react";
 import {getServerSession} from "next-auth";
 import ImageUploader from "@/components/ImageUploader";
 import ParticipateGb from "@/components/participateGb";
+import Chat from "@/components/Chat";
 
 axios.defaults.baseURL = process.env.DEFAULT_URL
 export default async function article({params}) {
@@ -70,6 +71,7 @@ export default async function article({params}) {
                     </div>
                     <div className="px-[13px] py-[3px] min-h-[200px] break-all" dangerouslySetInnerHTML={{ __html: result.data.content}}/>
                 </div>
+                <Chat roomnum={id}/>
             </div>
         </div>
     )

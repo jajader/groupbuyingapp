@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "dev:socket": "node --trace-warnings --no-warnings server.mjs",
     "build": "next build",
-    "start": "next start",
+    "start": "node server.mjs",
     "lint": "next lint"
   },
   "dependencies": {

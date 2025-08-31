@@ -9,7 +9,7 @@ const ChatMessage = ({sender, message, isOwnMessage}) => {
                 isSystemMessage ? "bg-gray-800 text-white text-center text-xs"
                     : isOwnMessage ? "bg-blue-500 text-white" : "bg-white text-black"
             }`}>
-                {!isSystemMessage && <p className="text-sm font-bold">{sender}</p>}
+                {!isSystemMessage && !isOwnMessage && <p className="text-sm font-bold">{sender}</p>}
                 <p>{message}</p>
             </div>
         </div>

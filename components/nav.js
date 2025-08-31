@@ -13,7 +13,7 @@ import Sejong from "@/public/assets/Sejong.png"
 import Image from "next/image"
 
 import {
-    Bell, Pencil, DollarSign, MenuIcon, BellDot
+    Bell, Pencil, DollarSign, MenuIcon, BellDot, User
 } from "lucide-react";
 
 import Link from "next/link"
@@ -23,6 +23,7 @@ import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
 import LoginButton from "@/components/googleLogin";
 import {usePathname} from "next/navigation";
+import {useSession} from "next-auth/react";
 
 var menuItem = [
     {
@@ -48,10 +49,12 @@ var menuItem = [
 ];
 
 export default function Nav() {
+    const {data: session, status} = useSession();
     const pathname = usePathname();
     if (pathname.endsWith("login")) {
         return null;
     }
+    if (!session) return null;
     return (
         <div className="bg-white">
             <header className="flex h-20 items-center px-4 md:px-6">
@@ -97,10 +100,10 @@ export default function Nav() {
                         </div>
                     </SheetContent>
                 </Sheet>
-
-                <div className="ml-auto">
-                    My
-                </div>
+                <Link href={`/user/${session.user.name}`} className="ml-auto font-medium flex h-9 px-4 gap-1 items-center hover:bg-gray-100 rounded-[5px] text-[15px]">
+                    <span>{session.user.name}</span>
+                    <User className="w-[16px] h-[16px]"/>
+                </Link>
             </header>
             <hr/>
         </div>
