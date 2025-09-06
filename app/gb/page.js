@@ -1,5 +1,6 @@
 import axios from "axios";
 export const dynamic = 'force-dynamic';
+import {UserRound} from "lucide-react";
 
 axios.defaults.baseURL = process.env.DEFAULT_URL
 export default async function freeboard() {
@@ -52,9 +53,32 @@ export default async function freeboard() {
                             <div className="text-[13px] truncate">{article.sort}</div>
                             <div className="text-[16px] truncate">{article.name}</div>
                             <div className="flex flex-row justify-between">
-                                <div className="text-[13px] flex flex-row gap-2">
-                                    <div className="text-red-500 font-bold">{article.price}원 </div>
-                                    <div className="flex flex-row">| 👤 {article.participants.length}</div>
+                                <div className="text-[13px] flex flex-row gap-1 items-center">
+                                    <div className="text-red-500 font-bold">{article.price}원</div>
+                                    <div>|</div>
+                                    <UserRound size={15}/>
+                                    <div className="flex flex-row">{article.participants.length}</div>
+                                </div>
+                                <div className="text-[13px]">{article.author} | {formatDate(article.date)} | 조회수 {article.views}</div>
+                            </div>
+                        </div>
+                    </a>
+                )}
+            </div>
+            <div className="md:grid hidden border-y-1 grid-cols-2">
+                {articles.map((article) =>
+                    <a href={`/gb/${article.postId}`} key={article._id}
+                       className="h-[500px] p-1 px-2 flex flex-col gap-2">
+                        <img className="h-full w-full bg-blue-300 rounded-[4px] flex items-center justify-center" src={article.imgurl} alt="미리보기 이미지"/>
+                        <div className="flex flex-col gap-[2px] flex-1 min-w-0">
+                            <div className="text-[13px] truncate">{article.sort}</div>
+                            <div className="text-[16px] truncate">{article.name}</div>
+                            <div className="flex flex-row justify-between">
+                                <div className="text-[13px] flex flex-row gap-1 items-center">
+                                    <div className="text-red-500 font-bold">{article.price}원</div>
+                                    <div>|</div>
+                                    <UserRound size={15}/>
+                                    <div className="flex flex-row">{article.participants.length}</div>
                                 </div>
                                 <div className="text-[13px]">{article.author} | {formatDate(article.date)} | 조회수 {article.views}</div>
                             </div>
