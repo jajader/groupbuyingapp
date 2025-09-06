@@ -4,7 +4,7 @@ import {connectDB} from "@/app/util/database";
 export default function RootLayout({children}) {
     return (
         <div className="justify-items-center">
-            <div className="grid min-h-screen xl:w-[1280px] w-full grid-flow-row grid-cols-4 bg-gray-100">
+            <div className="grid xl:w-[1280px] w-full grid-flow-row grid-cols-4 bg-gray-100">
                 <div className="border-l-[1px] border-r-[1px] border-gray-400 col-span-4 xl:col-span-3 row-span-7 bg-white w-full">
                     <div className="flex flex-col gap-0">
                         <div className="flex p-4 border-b-[1px] border-gray-300 gap-2 w-full">

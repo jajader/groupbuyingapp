@@ -13,7 +13,7 @@ import Sejong from "@/public/assets/Sejong.png"
 import Image from "next/image"
 
 import {
-    Bell, Pencil, DollarSign, MenuIcon, BellDot, User
+    Bell, Pencil, DollarSign, MenuIcon, BellDot, User, Send
 } from "lucide-react";
 
 import Link from "next/link"
@@ -100,10 +100,16 @@ export default function Nav() {
                         </div>
                     </SheetContent>
                 </Sheet>
-                <Link href={`/user/${session.user.name}`} className="ml-auto font-medium flex h-9 px-4 gap-1 items-center hover:bg-gray-100 rounded-[5px] text-[15px]">
-                    <span>{session.user.name}</span>
-                    <User className="w-[16px] h-[16px]"/>
-                </Link>
+                <div className="ml-auto font-medium flex h-9 px-4 gap-2 items-center rounded-[5px] text-[15px]">
+                    <Link href={`/message`} className="gap-1 flex items-center hover:bg-gray-100 rounded-[5px] px-2 h-9">
+                        <span>메세지</span>
+                        <Send className="w-[16px] h-[16px]"/>
+                    </Link>
+                    <Link href={`/user/${session.user.name}`} className="gap-1 flex items-center hover:bg-gray-100 rounded-[5px] px-2 h-9">
+                        <span>{session.user.name}</span>
+                        <User className="w-[16px] h-[16px]"/>
+                    </Link>
+                </div>
             </header>
             <hr/>
         </div>

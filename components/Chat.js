@@ -47,10 +47,9 @@ export default function Chat({roomnum}) {
     if (!session) return null;
     console.log(messages);
     return (
-        <div>
-            <div className="p-4">
-                <h1 className="mb-4 text-2xl font-bold">Room: {roomnum}</h1>
-                <div className="h-[500px] overflow-y-auto p-4 mb-4 bg-gray-200 border-2 rounded-lg" ref={scrollRef}>
+        <div className="w-full h-full">
+            <div className="p-4 h-full flex flex-col">
+                <div className="flex-1 overflow-y-auto p-4 bg-gray-200 border-2 rounded-lg" ref={scrollRef}>
                     {messages.map((msg, index) => (
                         <ChatMessage key={index} sender={msg.sender} message={msg.message} isOwnMessage={msg.sender == session.user.name}/>
                     ))}

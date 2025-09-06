@@ -62,7 +62,6 @@ export default async function article({params}) {
                             )}
                             {!itsme && <ParticipateGb id={id} participants={result.data.participants} user={session.user.name}/>}
                         </div>
-
                     </div>
                 </div>
                 <div>

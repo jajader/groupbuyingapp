@@ -31,10 +31,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-    <body className="h-screen">
+    <body >
         <AuthProvider>
-                <Nav/>
-                {children}
+                <div className="flex flex-col h-screen">
+                    <Nav/>
+                    {children}
+                </div>
         </AuthProvider>
       </body>
     </html>
